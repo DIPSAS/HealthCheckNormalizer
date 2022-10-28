@@ -41,7 +41,7 @@ The `method` parameter are at the moment only limited to `GET` requests, but wil
 
 
 ## How does this work?
-The Docker container runs the [start.sh](start.sh) script with the given [configuration file](config.yaml).
+The Docker container runs the [start.sh](start.sh) script with the given [configuration file](config/config.yaml).
 
 The given environments are defined within the configuration file.
 
