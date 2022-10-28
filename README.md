@@ -50,3 +50,5 @@ The [start.sh](start.sh) script iterates through each environment and initiates 
 The [main.py](main.py) script iterates through each node host and retrieves all endpoints for a given environment.
 
 Then each endpoint are probed against the given rules and a normalized JSON health format are outputted.
+
+The JSON output standard are based on the [json_exporter standard](https://github.com/prometheus-community/json_exporter/blob/master/examples/data.json), which means the generated normalized health checks can be implemented in [Grafana](https://github.com/grafana/grafana) by using [Prometheus](https://github.com/prometheus/prometheus) and [json_exporter](https://github.com/prometheus-community/json_exporter).
