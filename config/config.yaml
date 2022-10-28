@@ -1,0 +1,62 @@
+default_values:
+  port: 1337
+  request_uri: /api/endpoints
+  proto: http
+  method: get
+global_values:
+  show_active: False
+  debug_full: False
+  debug_compact: True
+  write_to_file: True
+  endpoint_dir: /app/data
+  connection_timeout: 10
+  webserver_logs: True
+  webserver_logging_file: http.server.log
+  sh_logs: True
+  sh_logging_file: start.sh.error.log
+  logging_directory: /app/logs
+  main_logs: True
+  main_logging_file: main.py.error.log
+
+rules_healthy_services:
+  # When retrieving data from a endpoint, these patterns
+  # are matched against the endpoint URL when rules are applied
+  # to determine uptime for a endpoint
+  in_url:
+    - ping
+    - health
+
+  # When retrieving data from a endpoint, these patterns
+  # are matched to determine uptime for a endpoint
+  url_expected_reply:
+    - "pong"
+    - "OK"
+    - "is running"
+    - "still running"
+
+  # If the retrieved status code matches this criteria,
+  # the service is healthy
+  status_code: 10
+
+rules_degraded_services:
+  # If the retrieved status code matches this criteria,
+  # the service is degraded
+  status_code: 20
+
+rules_unhealthy_services:
+  # If the retrieved status code matches this criteria,
+  # the service is unhealthy
+  status_code: 30
+
+endpoints:
+  # Mandatory parameter `environment`: Used to iterate through given environnment(s)
+  # Optional parameters `port`, `request_uri`, `proto`, `method`: Can be used to
+  # specifically define parameters that do not match the default values
+  hostname1.domain:
+    environment: "testenv1"
+  hostname2.domain:
+    environment: "testenv2"
+    port: 1337
+    request_uri: /api/endpoints
+    proto: https
+    method: get

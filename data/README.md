@@ -1,0 +1,1 @@
+Endpoint files will be generated to this folder and the Python webserver will return files within this directory, when requested.

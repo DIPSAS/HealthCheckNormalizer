@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  health_check_normalizer:
+    container_name: health_check_normalizer
+    build: .
+    ports:
+      - 8028:8028
+    working_dir: /app
+    volumes:
+      - $PWD/config:/app/config:ro
+      - $PWD/logs:/app/logs:rw

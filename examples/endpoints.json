@@ -1,0 +1,21 @@
+{
+  "name": "HealthCheckNormalizer",
+  "values": [
+    {
+      "id": 1,
+      "hostname": "fqdn1",
+      "url": "https://fqdn/service-name/status/health",
+      "service_name": "Service-Name",
+      "state": "DEGRADED",
+      "environment": "env1"
+    },
+    {
+      "id": 2,
+      "hostname": "fqdn2",
+      "url": "https://fqdn/service-name",
+      "service_name": "Service-Name",
+      "state": "UNHEALTHY",
+      "environment": "env2"
+    }
+  ]
+}
